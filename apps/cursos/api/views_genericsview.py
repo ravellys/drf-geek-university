@@ -18,7 +18,7 @@ class AvaliacoesAPIView(generics.ListCreateAPIView):
     def get_queryset(self):
         if self.kwargs.get('curso_pk'):
             return self.queryset.filter(curso_id=self.kwargs.get('curso_pk'))
-        return self.queryset
+        return self.queryset.all()
 
 
 # Detail, Delete e Update
