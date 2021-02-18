@@ -1,0 +1,12 @@
+gerando um token:
+
+>>> from rest_framework.authtoken.models import Token
+>>> from django.contrib.auth.models import User
+>>> admin = User.objects.all().last()
+>>> admin
+<User: admin>
+>>> token = Token.objects.create(user=admin)
+>>> token
+<Token: 23e3470b4989a5eaeb85183fe807bfd2ebb9016c>
+>>> token.key
+'23e3470b4989a5eaeb85183fe807bfd2ebb9016c'

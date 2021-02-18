@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # apps instaladas
     'django_filters',
     'rest_framework',
+    'rest_framework.authtoken',
 
     # apps criadas
     'apps.cursos',
@@ -139,7 +140,8 @@ REST_FRAMEWORK = {
 
     # https://www.django-rest-framework.org/api-guide/authentication/
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
 
     # https://www.django-rest-framework.org/api-guide/permissions/
