@@ -9,4 +9,7 @@ gerando um token:
 >>> token
 <Token: 23e3470b4989a5eaeb85183fe807bfd2ebb9016c>
 >>> token.key
-'23e3470b4989a5eaeb85183fe807bfd2ebb9016c'
+# tokem admin: '23e3470b4989a5eaeb85183fe807bfd2ebb9016c'
+
+
+# token usuario1: 4e6d9619939d63ee100460ab82e5896cb42200e4
