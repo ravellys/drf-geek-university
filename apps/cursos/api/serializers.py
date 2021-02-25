@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from rest_framework import serializers
 from apps.cursos.models import Avaliacao, Curso
 
@@ -26,10 +27,25 @@ class CursoSerializer(serializers.ModelSerializer):
 
     # Primary Key Related Field
     avaliacoes = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    media_avaliacoes = serializers.SerializerMethodField()
 
     class Meta:
         model = Curso
-        fields = ('id', 'titulo', 'url', 'criacao', 'ativo', 'avaliacoes')
+        fields = ('id', 'titulo', 'url', 'criacao', 'ativo', 'avaliacoes', 'media_avaliacoes', )
+
+    def get_media_avaliacoes(self, obj):
+        # media = 0
+        # quantidade_avaliacoes = len(obj.avaliacoes.values())
+        # for avaliacao in obj.avaliacoes.values():
+        #     media += avaliacao.get('avaliacao', 0)/quantidade_avaliacoes
+        # return round(media, 1)
+
+        media = obj.avaliacoes.aggregate(Avg('avaliacao')).get('avaliacao__avg')
+        print(media)
+        if media:
+            return round(media, 1)
+        return 0
+
 
 
 # Testando serializers
