@@ -9,7 +9,7 @@ from apps.cursos.models import Curso, Avaliacao
 
 
 class CursoViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsSuperUser, permissions.DjangoModelPermissions, )
+    permission_classes = (IsSuperUser, permissions.DjangoModelPermissions, )  # a ordem importa
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 
