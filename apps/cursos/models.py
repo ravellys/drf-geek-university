@@ -29,7 +29,7 @@ class Avaliacao(Base):
     nome = models.CharField(max_length=255)
     email = models.EmailField()
     comentario = models.TextField(blank=True, default='')
-    avaliacao = models.DecimalField(max_digits=2, decimal_places=2)
+    avaliacao = models.DecimalField(max_digits=2, decimal_places=1)
 
     class Meta:
         verbose_name = 'Avaliação'
